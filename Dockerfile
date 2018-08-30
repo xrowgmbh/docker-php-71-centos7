@@ -15,6 +15,6 @@ RUN INSTALL_PKGS="sclo-php71-php-pecl-redis \
     yum clean all -y
 
 RUN wget https://raw.githubusercontent.com/composer/getcomposer.org/master/web/installer -O - -q | php -- --quiet --install-dir=/usr/bin --filename=composer && \
-    rm -Rf .composer
+    rm -Rf /opt/app-root/src/.composer
 
 USER 1001
