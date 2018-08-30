@@ -2,8 +2,8 @@ FROM centos/php-71-centos7
 
 USER 0
 
-ENV COMPOSER_ALLOW_XDEBUG=1
-
+ENV COMPOSER_ALLOW_XDEBUG=1 \
+    PHP_VER_SHORT=71 \
 # Install Apache httpd and PHP
 RUN yum install -y && \
     INSTALL_PKGS="sclo-php${PHP_VER_SHORT}-php-pecl-redis sclo-php${PHP_VER_SHORT}-php-mcrypt \
