@@ -6,8 +6,7 @@ ENV COMPOSER_ALLOW_XDEBUG=1 \
     PHP_VER_SHORT=71
 
 # Install Apache httpd and PHP
-RUN yum install -y && \
-    INSTALL_PKGS="sclo-php71-php-pecl-redis sclo-php71-php-mcrypt \
+RUN INSTALL_PKGS="sclo-php71-php-pecl-redis sclo-php71-php-mcrypt \
                   sclo-php71-php-pecl-http sclo-php71-php-pecl-xdebug \ 
                   sclo-php71-php-pecl-amqp sclo-php71-php-pecl-msgpack \
                   sclo-php71-php-pecl-memcached sclo-php71-php-pecl-lzf \
