@@ -9,7 +9,8 @@ RUN INSTALL_PKGS="sclo-php71-php-pecl-redis \
                   sclo-php71-php-pecl-http sclo-php71-php-pecl-xdebug \ 
                   sclo-php71-php-pecl-amqp sclo-php71-php-pecl-msgpack \
                   sclo-php71-php-pecl-memcached sclo-php71-php-pecl-lzf \
-                  sclo-php71-php-pecl-imagick sclo-php71-php-pecl-igbinary" && \
+                  sclo-php71-php-pecl-imagick sclo-php71-php-pecl-igbinary \
+                  jpegoptim pngquant" && \
     yum install -y --setopt=tsflags=nodocs $INSTALL_PKGS --nogpgcheck && \
     rpm -V $INSTALL_PKGS && \
     yum clean all -y
