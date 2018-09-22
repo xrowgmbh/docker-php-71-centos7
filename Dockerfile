@@ -5,7 +5,8 @@ USER 0
 ENV COMPOSER_ALLOW_XDEBUG=1
 
 # Install Apache httpd and PHP
-RUN INSTALL_PKGS="sclo-php71-php-pecl-redis \
+RUN yum install -y --setopt=tsflags=nodocs epel-release && \
+    INSTALL_PKGS="sclo-php71-php-pecl-redis \
                   sclo-php71-php-pecl-http sclo-php71-php-pecl-xdebug \ 
                   sclo-php71-php-pecl-amqp sclo-php71-php-pecl-msgpack \
                   sclo-php71-php-pecl-memcached sclo-php71-php-pecl-lzf \
