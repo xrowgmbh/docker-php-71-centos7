@@ -16,6 +16,9 @@ RUN yum install -y --setopt=tsflags=nodocs epel-release && \
     rpm -V $INSTALL_PKGS && \
     yum clean all -y
 
+ADD php.d/* /etc/opt/rh/rh-php71/php.d/
+
+# Add Composer
 RUN wget https://raw.githubusercontent.com/composer/getcomposer.org/master/web/installer -O - -q | php -- --quiet --install-dir=/usr/bin --filename=composer && \
     rm -Rf /opt/app-root/src/.composer && \
     mkdir -p /var/log/httpd24/xdebug/ && \
@@ -24,6 +27,9 @@ RUN wget https://raw.githubusercontent.com/composer/getcomposer.org/master/web/i
     yum localinstall -y --nogpgcheck https://download1.rpmfusion.org/free/el/rpmfusion-free-release-7.noarch.rpm https://download1.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-7.noarch.rpm && \
     yum install -y ffmpeg
 
-ADD php.d/* /etc/opt/rh/rh-php71/php.d/
+# Add platform.sh
+
+RUN curl -L https://github.com/platformsh/platformsh-cli/releases/download/v3.38.1/platform.phar > /usr/bin/platform && \
+    chmod 755 /usr/bin/platform
 
 USER 1001
